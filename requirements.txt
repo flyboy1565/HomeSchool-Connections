@@ -2,3 +2,5 @@ Django==3.2.3
 django-admin-list-filter-dropdown==1.0.3
 django-filter==2.4.0
 djangorestframework==3.12.4
+django-phonenumber-field==5.1.0
+phonenumbers==8.12.23
