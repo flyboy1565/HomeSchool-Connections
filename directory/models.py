@@ -26,12 +26,15 @@ class Family(models.Model):
 
     def __str__(self):
         return self.family_nickname
+
+    class Meta:
+        verbose_name_plural = 'Familes'
     
 
 class ParentContact(models.Model):
-    first_name = models.CharField(_("first_name"), max_length=50)
-    last_name = models.CharField(_("last_name"), max_length=60)
-    phone_number = PhoneNumberField(_("phone_number"))
+    first_name = models.CharField(_("first name"), max_length=50)
+    last_name = models.CharField(_("last name"), max_length=60)
+    phone_number = PhoneNumberField(_("phone number"))
     email = models.EmailField(_("email"), max_length=254)
     participation_level = models.CharField(_("participation_level"), choices=participation_level_choices(), max_length=5)
     volunteering_type = models.ManyToManyField("VolunteerType", related_name='volunteering_types')
@@ -43,7 +46,7 @@ class ParentContact(models.Model):
 
 
 class Child(models.Model):
-    child_name = models.CharField(_("child_name"), max_length=50)
+    child_name = models.CharField(_("child name"), max_length=50)
     birth_date = models.DateField()
     allergies = models.TextField(null=True, blank=True)
     medical_notes = models.TextField(null=True, blank=True)
@@ -51,6 +54,8 @@ class Child(models.Model):
     def __str__(self):
         return self.child_name
     
+    class Meta:
+        verbose_name_plural = 'Children'
     
 
 class SkillSet(models.Model):

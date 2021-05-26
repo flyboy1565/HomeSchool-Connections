@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import *
+
+admin.site.register(Family)
+admin.site.register(ParentContact)
+admin.site.register(Child)
+admin.site.register(SkillSet)
+admin.site.register(VolunteerType)
