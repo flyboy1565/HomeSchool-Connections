@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Welcome
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Welcome</h1>
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Family Groups
+                </div>
+                <ul class="list-group list-group-flush">
+                  {% for family in familes %}
+                    <li class="list-group-item"><a href="#">{{family.family_nickname}}</a></li>
+                  {% empty %}
+                    <li class="list-group-item">No Families Registered</li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                  Volunteers
+                </div>
+                <ul class="list-group list-group-flush">
+                  {% for t in volunteer_types %}
+                    <li class="list-group-item"><a href="#">{{t.vtype}}</a></li>
+                  {% empty %}
+                    <li class="list-group-item">No Volunteers Registered</li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

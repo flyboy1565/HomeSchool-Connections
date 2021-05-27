@@ -16,7 +16,7 @@ def contact_choices():
         ('e', 'Email'),
         ('p', 'Phone'),
         ('t', 'Text'),
-        ('s', 'Social Media Account'),
+        # ('s', 'Social Media Account'),
     )
 
 class Family(models.Model):
@@ -34,11 +34,11 @@ class Family(models.Model):
 class ParentContact(models.Model):
     first_name = models.CharField(_("first name"), max_length=50)
     last_name = models.CharField(_("last name"), max_length=60)
-    phone_number = PhoneNumberField(_("phone number"))
-    email = models.EmailField(_("email"), max_length=254)
-    participation_level = models.CharField(_("participation_level"), choices=participation_level_choices(), max_length=5)
+    phone_number = PhoneNumberField(_("phone number"),null=True, blank=True)
+    email = models.EmailField(_("email"), max_length=254,null=True, blank=True)
+    participation_level = models.CharField(_("participation level"), choices=participation_level_choices(), max_length=5)
     volunteering_type = models.ManyToManyField("VolunteerType", related_name='volunteering_types')
-    best_contact_option = models.CharField(_('best_contact_option'), choices=contact_choices(), max_length=5)
+    best_contact_option = models.CharField(_('best contact option'), choices=contact_choices(), max_length=5)
     skills = models.ManyToManyField("SkillSet", related_name='skills')
 
     def __str__(self):

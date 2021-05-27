@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
+from .views import add_contact, index
+
 urlpatterns = [
-    
+    path('', index, name="home"),
+    path('add', add_contact, name="add-contact"),
 ]

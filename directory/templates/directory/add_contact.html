@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Contact
+{% endblock title %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <h1 class="text-center">Add Contact</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="row">Parent Contact Info</div>
+        <div class="row">
+            {% crispy parent_formset helper %}    
+        </div>
+        <div class="row">Child Info</div>
+        <div class="row">
+            {% crispy child_formset helper %}    
+        </div>
+    </form>
+
+{% endblock content %}
