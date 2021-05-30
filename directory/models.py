@@ -21,8 +21,8 @@ def contact_choices():
 
 class Family(models.Model):
     family_nickname = models.CharField(max_length=50, unique=True)
-    guardian = models.ForeignKey("ParentContact", related_name="parents", on_delete=models.CASCADE)
-    children = models.ForeignKey("Child", related_name='children', on_delete=models.CASCADE)
+    guardian = models.ManyToManyField("ParentContact")
+    children = models.ManyToManyField("Child")
 
     def __str__(self):
         return self.family_nickname

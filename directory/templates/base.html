@@ -13,6 +13,35 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         {% comment %} {% load staticfiles %} {% endcomment %}
         {% comment %} <link rel="stylesheet" href="{% static 'main.css' %}"> {% endcomment %}
+        <style>
+            html, body {
+                background:#023B73;
+            }
+            h1 {
+                color:white;
+            }
+            .card-body {
+                background-color: #fff;
+            }
+            .card-header .card-title:after {
+                content: "^";
+                float: right;
+            }
+
+            .card-header.collapsed .card-title:after {
+                content: '^';
+                transform: rotate(180deg);
+            }
+            .card-header {
+                padding: .75rem 1.25rem;
+                margin-bottom: 0;
+                background-color: #e9ecef;
+                border-bottom: 1px solid rgba(0,0,0,.125);
+            }
+            .card-header {
+                background: #2d7cca;
+            }
+        </style>
     </head>
     <body>
 
@@ -42,11 +71,5 @@
         {% block content %}
         {% endblock content %}
         </div>
-        {% comment %} 
-            <div class="jumbotron text-center" style="margin-bottom:0">
-            <p>Footer</p>
-            </div> 
-        {% endcomment %}
-
     </body>
 </html>

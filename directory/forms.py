@@ -29,5 +29,5 @@ class MyFormSetHelper(FormHelper):
         self.template = 'bootstrap/table_inline_formset.html'
 
 
-ParentFormSet = modelformset_factory(ParentContact, form=ParentContactForm, extra=1)
-ChildrenFormSet = modelformset_factory(Child, form=ChildForm, extra=2)
+ParentFormSet = modelformset_factory(ParentContact, form=ParentContactForm, extra=0)
+ChildrenFormSet = modelformset_factory(Child, form=ChildForm, extra=1)

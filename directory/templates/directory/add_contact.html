@@ -9,16 +9,36 @@ Add Contact
 
 {% block content %}
     <h1 class="text-center">Add Contact</h1>
-    <form action="" method="post">
+    <form action="{% url "add-contact" %}" method="post">
         {% csrf_token %}
-        <div class="row">Parent Contact Info</div>
         <div class="row">
-            {% crispy parent_formset helper %}    
+            <div class="container">
+                <div id="parent-accordian" class="accordian">
+                    <div class="card">
+                        {% for parent in parent_count %}
+                            {% include 'directory/parent-form.html' with indexValue=parent  %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">Child Info</div>
         <div class="row">
-            {% crispy child_formset helper %}    
+            <div class="container">
+                <div id="child-accordian" class="accordian">
+                    <div class="card">
+                        {% for child in child_count %}
+                            {% include 'directory/child-form.html' with indexValue=child  %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="col">
+                    <button type="submit" class="float-right text-center btn btn-primary">Submit</button>
+                </div>
+            </div>
         </div>
     </form>
-
 {% endblock content %}

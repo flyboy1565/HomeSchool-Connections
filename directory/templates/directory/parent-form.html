@@ -1,79 +1,82 @@
-<div class="card">
-    <div class="card-header">
+ <div class="card-header {% if indexValue != 0 %}collapsed{% endif %}" data-target="#collapse{{indexValue}}" data-toggle="collapse" href="#collapse{{indexValue}}">
+    <div class="card-title">
       Parent
     </div>
-    <div class="card-body">
-       <div class="container">
-           <div class="row">
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-first_name">First Name<span class="asteriskField">*</span></label>
-                        <input type="text"  class="textinput textInput form-control" id="id_parent-__prefix__-first_name" aria-describedby="FirstName" placeholder="Enter First Name">
+</div>
+    <div id="collapse{{indexValue}}" class="card-body collapse {% if indexValue == 0 %}show{% endif %}" data-parent="#child-accordian">
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-first_name">First Name<span class="asteriskField">*</span></label>
+                                <input type="text"  class="textinput textInput form-control" id="id_parent-{{indexValue}}-first_name" aria-describedby="FirstName" placeholder="Enter First Name">
+                            </div>
                     </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-last_name">Last Name<span class="asteriskField">*</span></label>
-                        <input type="text"  class="textinput textInput form-control" id="id_parent-__prefix__-last_name" aria-describedby="LastName" placeholder="Enter Last Name">
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-last_name">Last Name<span class="asteriskField">*</span></label>
+                                <input type="text"  class="textinput textInput form-control" id="id_parent-{{indexValue}}-last_name" aria-describedby="LastName" placeholder="Enter Last Name">
+                            </div>
                     </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-participation_level">Participation Level<span class="asteriskField">*</span></label>
-                        <select name="parent-__prefix__-participation_level" class="select form-control" id="id_parent-__prefix__-participation_level"> 
-                            <option value="" selected="">---------</option> <option value="a">All-In</option> 
-                            <option value="b">Email Me</option> <option value="c">Usually Busy</option>
-                        </select> 
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-participation_level">Participation Level<span class="asteriskField">*</span></label>
+                                <select name="parent-{{indexValue}}-participation_level" class="select form-control" id="id_parent-{{indexValue}}-participation_level"> 
+                                    <option value="" selected="">---------</option> <option value="a">All-In</option> 
+                                    <option value="b">Email Me</option> <option value="c">Usually Busy</option>
+                                </select> 
+                            </div>
                     </div>
-               </div>
-           </div>
-           <div class="row">
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-phone_number">Phone Number</label>
-                        <input type="tel" name="parent-__prefix__-phone_number" maxlength="128" class="textinput textInput form-control" id="id_parent-__prefix__-phone_number" placeholder="Enter Phone Number"> 
+                </div>
+                <div class="row">
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-phone_number">Phone Number</label>
+                                <input type="tel" name="parent-{{indexValue}}-phone_number" maxlength="128" class="textinput textInput form-control" id="id_parent-{{indexValue}}-phone_number" placeholder="Enter Phone Number"> 
+                            </div>
                     </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-email">Email Address</label>
-                        <input type="email" name="parent-__prefix__-email" maxlength="254" class="emailinput form-control" id="id_parent-__prefix__-email" placeholder="Enter Email Address"> 
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-email">Email Address</label>
+                                <input type="email" name="parent-{{indexValue}}-email" maxlength="254" class="emailinput form-control" id="id_parent-{{indexValue}}-email" placeholder="Enter Email Address"> 
+                            </div>
                     </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-best_contact_option">Best Contact</label>
-                        <select name="parent-__prefix__-best_contact_option" class="select form-control" id="id_parent-__prefix__-best_contact_option"> 
-                            <option value="" selected="">---------</option> 
-                            <option value="e">Email</option> 
-                            <option value="p">Phone</option> 
-                            <option value="t">Text</option>
-                        </select> 
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-best_contact_option">Best Contact</label>
+                                <select name="parent-{{indexValue}}-best_contact_option" class="select form-control" id="id_parent-{{indexValue}}-best_contact_option"> 
+                                    <option value="" selected="">---------</option> 
+                                    <option value="e">Email</option> 
+                                    <option value="p">Phone</option> 
+                                    <option value="t">Text</option>
+                                </select> 
+                            </div>
                     </div>
-               </div>
+                    </div>
+                    <div class="row">
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-volunteering_type">Volunteering</label>
+                                <select name="parent-{{indexValue}}-volunteering_type" class="selectmultiple form-control" id="id_parent-{{indexValue}}-volunteering_type" multiple=""> 
+                                    <option value="1">Field Trips</option> 
+                                    <option value="2">Tutoring</option>
+                                </select> 
+                            </div>
+                    </div>
+                    <div class="col">
+                            <div class="form-group">
+                                <label for="id_parent-{{indexValue}}-skills">Skills</label>
+                                <select name="id_parent-{{indexValue}}-skills" class="selectmultiple form-control" id="id_parent-{{indexValue}}-skills" multiple=""> 
+                                    <option value="1">Math</option> 
+                                    <option value="2">Organization</option> 
+                                    <option value="3">English</option> 
+                                    <option value="4">Writing</option>
+                                </select> 
+                            </div>
+                    </div>
+                </div>
+                </div>
             </div>
-            <div class="row">
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-volunteering_type">Volunteering</label>
-                        <select name="parent-__prefix__-volunteering_type" class="selectmultiple form-control" id="id_parent-__prefix__-volunteering_type" multiple=""> 
-                            <option value="1">Field Trips</option> 
-                            <option value="2">Tutoring</option>
-                        </select> 
-                    </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="id_parent-__prefix__-skills">Skills</label>
-                        <select name="id_parent-__prefix__-skills" class="selectmultiple form-control" id="id_parent-__prefix__-skills" multiple=""> 
-                            <option value="1">Math</option> 
-                            <option value="2">Organization</option> 
-                            <option value="3">English</option> 
-                            <option value="4">Writing</option>
-                        </select> 
-                    </div>
-               </div>
-           </div>
-        </div>
     </div>
 </div>
