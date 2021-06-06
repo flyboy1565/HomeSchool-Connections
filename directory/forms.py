@@ -1,14 +1,15 @@
 from django.forms import ModelForm
 from django.forms import modelformset_factory
+from django.forms.models import modelform_factory
 
 from crispy_forms.helper import FormHelper, Layout
 
 from .models import *
 
-class FamilyForm(ModelForm):
-    class Meta:
-        model = Family
-        fields = '__all__'
+# class FamilyForm(ModelForm):
+#     class Meta:
+#         model = Family
+#         fields = '__all__'
 
 
 class ParentContactForm(ModelForm):
@@ -20,7 +21,7 @@ class ParentContactForm(ModelForm):
 class ChildForm(ModelForm):
     class Meta:
         model = Child
-        fields = '__all__'
+        fields = ('child_name', 'birth_date', 'allergies', 'medical_notes')
 
 
 class MyFormSetHelper(FormHelper):
@@ -29,5 +30,5 @@ class MyFormSetHelper(FormHelper):
         self.template = 'bootstrap/table_inline_formset.html'
 
 
-ParentFormSet = modelformset_factory(ParentContact, form=ParentContactForm, extra=0)
-ChildrenFormSet = modelformset_factory(Child, form=ChildForm, extra=1)
+# ParentForm = modelform_factory(ParentContact, form=ParentContactForm)
+# ChildrenForm = modelform_factory(Child, form=ChildForm)

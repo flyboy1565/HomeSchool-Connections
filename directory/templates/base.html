@@ -11,42 +11,63 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
         {% comment %} {% load staticfiles %} {% endcomment %}
         {% comment %} <link rel="stylesheet" href="{% static 'main.css' %}"> {% endcomment %}
         <style>
             html, body {
-                background:#023B73;
+                background:#1e3888;
             }
             h1 {
                 color:white;
             }
+            .card-title {
+                margin-bottom: .75rem;
+                color: white;
+                font-weight: bolder;
+                text-align: center;
+            }
             .card-body {
                 background-color: #fff;
-            }
-            .card-header .card-title:after {
-                content: "^";
-                float: right;
-            }
-
-            .card-header.collapsed .card-title:after {
-                content: '^';
-                transform: rotate(180deg);
             }
             .card-header {
                 padding: .75rem 1.25rem;
                 margin-bottom: 0;
-                background-color: #e9ecef;
+                background-color: #47a8bd;
                 border-bottom: 1px solid rgba(0,0,0,.125);
             }
             .card-header {
                 background: #2d7cca;
+            }
+            .card {
+                margin-bottom: 4px;
+            }
+            .search-card {
+                max-height: 18rem;
+            }
+            .search-card ul.list-group.list-group-flush {
+                height: 100%;
+                overflow: auto;
+            }
+            .search-glass {
+                font-family: FontAwesome;
+                {% comment %} padding: 17px;
+                padding-left: 55px;
+                width: 300px;
+                border: 1px solid #f5f5f5;
+                font-size: 13px;
+                color: gray;
+                background-image: url('http://i47.tinypic.com/r02vbq.png');
+                background-repeat: no-repeat;
+                background-position: left center;
+                outline: 0 {% endcomment %}
             }
         </style>
     </head>
     <body>
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{% url 'home' %}">HSC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,6 +91,10 @@
         <div class="main container" style="margin-top:30px">
         {% block content %}
         {% endblock content %}
+        </div>
+        <div class="hidden">
+        {% block javascript %}
+        {% endblock javascript %}
         </div>
     </body>
 </html>

@@ -6,16 +6,44 @@ Welcome
 
 {% block content %}
 <div class="container">
-    <h1 class="text-center">Welcome</h1>
+    <div class="row">
+      <div class="container">
+        <h1 class="text-center">Welcome</h1>
+      </div>
+    </div>
     <div class="row">
         <div class="col">
-            <div class="card" style="width: 18rem;">
+            <div class="card search-card parent-search-card" style="width: 18rem;">
                 <div class="card-header">
-                  Family Groups
+                  Parents
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <input placeholder="&#xf002 Parent Search" type="text" name="parent_search" id="parent_search" class="form-control search-glass">
+                  </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                  {% for family in familes %}
-                    <li class="list-group-item"><a href="#">{{family.family_nickname}}</a></li>
+                  {% for parent in parents %}
+                    <li class="list-group-item"><a href="{% url 'view-object' obj_type='parent' pk=parent.pk %}">{{parent}}</a></li>
+                  {% empty %}
+                    <li class="list-group-item">No Families Registered</li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card child-search-card search-card" style="width: 18rem;">
+                <div class="card-header">
+                  Children
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <input placeholder="&#xf002 Child Search" type="text" name="child_search" id="child_search" class="form-control search-glass">
+                  </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  {% for child in children %}
+                    <li class="list-group-item"><a href="{% url 'view-object' obj_type='child' pk=child.pk %}">{{child}}</a></li>
                   {% empty %}
                     <li class="list-group-item">No Families Registered</li>
                   {% endfor %}
@@ -28,8 +56,8 @@ Welcome
                   Volunteers
                 </div>
                 <ul class="list-group list-group-flush">
-                  {% for t in volunteer_types %}
-                    <li class="list-group-item"><a href="#">{{t.vtype}}</a></li>
+                  {% for k, c in volunteer_types.items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="#">{{k}} </a><span class"badge badge-primary badge-pill">{{c}}</span></li>
                   {% empty %}
                     <li class="list-group-item">No Volunteers Registered</li>
                   {% endfor %}
@@ -40,3 +68,28 @@ Welcome
 </div>
 
 {% endblock content %}
+
+{% block javascript %}
+<script>
+  $(document).ready(function(){
+      $('.search-glass').keyup(function(){
+          let search = $(this).val().toUpperCase()
+          let search_box = $(this)
+          let card = $(search_box).closest('.card')[0]
+          let li = $(card).find('li > a')
+          li.each(function(){
+            if (search.length > 0) {
+              if ($(this).text().toUpperCase().indexOf(search) == -1 ){
+                $(this).parent().addClass('d-none')
+              } else {
+                $(this).parent().removeClass('d-none')
+              }
+            }
+            else {
+              $(this).parent().removeClass('d-none')
+            }
+          })
+      })
+  })
+</script>
+{% endblock javascript %}

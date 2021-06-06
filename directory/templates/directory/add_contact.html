@@ -8,37 +8,31 @@ Add Contact
 
 
 {% block content %}
-    <h1 class="text-center">Add Contact</h1>
-    <form action="{% url "add-contact" %}" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="container">
-                <div id="parent-accordian" class="accordian">
-                    <div class="card">
-                        {% for parent in parent_count %}
-                            {% include 'directory/parent-form.html' with indexValue=parent  %}
-                        {% endfor %}
+<form action="{% url "add-contact" %}" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="container">
+            <div class="card">
+                <div class="card-header" >
+                    <div class="card-title">Add Contact</div>
+                </div>
+                <div  class="card-body">    
+                    <div class="card-body">
+                        <div class="container">
+                            {% include 'directory/parent-form.html' %}
+                            <div class="row"><div class="container"><h6>Child Information</h6></div></div>
+                            <hr>
+                            {% include 'directory/child-form.html'  %}
+                            <div class="row">
+                                <div class="col ">
+                                    <button type="submit" class="float-right text-center btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                <div id="child-accordian" class="accordian">
-                    <div class="card">
-                        {% for child in child_count %}
-                            {% include 'directory/child-form.html' with indexValue=child  %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="container">
-                <div class="col">
-                    <button type="submit" class="float-right text-center btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </div>
-    </form>
+        </div> 
+    </div>
+</form>
 {% endblock content %}

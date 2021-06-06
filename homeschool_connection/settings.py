@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd Party Apps
     'phonenumber_field',
+    'django_admin_listfilter_dropdown',
     'crispy_forms',
     # Local Apps
     'directory',

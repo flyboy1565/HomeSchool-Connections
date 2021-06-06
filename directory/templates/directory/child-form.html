@@ -1,41 +1,28 @@
- <div class="card-header {% if indexValue != 0 %}collapsed{% endif %}" data-target="#child-collapse{{indexValue}}" data-toggle="collapse" href="#child-collapse{{indexValue}}">
-    <div class="card-title">
-      Child
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="child-child_name">Child Name<span class="asteriskField">*</span></label>
+            <input type="text" name="child-child_name" maxlength="50" class="textinput textInput form-control" id="id_child-child_name">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="child-birth_date">Birth Date<span class="asteriskField">*</span></label>
+            <input type="date" name="child-birth_date" class="dateinput form-control" id="id_child-birth_date">
+        </div>
     </div>
 </div>
-<div id="child-collapse{{indexValue}}" class="card-body collapse {% if indexValue == 0 %}show{% endif %}" data-parent="#child-accordian">    
-    <div class="card-body">
-       <div class="container">
-           <div class="row">
-               <div class="col">
-                    <div class="form-group">
-                        <label for="child-child_name">Child Name<span class="asteriskField">*</span></label>
-                        <input type="text" name="child-child_name" maxlength="50" class="textinput textInput form-control" id="id_child-{{indexValue}}-child_name">
-                    </div>
-               </div>
-               <div class="col">
-                    <div class="form-group">
-                        <label for="child-birth_date">Birth Date<span class="asteriskField">*</span></label>
-                        <input type="date" name="child-birth_date" class="dateinput form-control" id="id_child-{{indexValue}}-birth_date">
-                    </div>
-               </div>
-           </div>
-           <div class="row">
-               <div class="col">
-                 <div class="form-group">
-                    <label for="child-allergies">Allergies</label>
-                    <textarea name="child-allergies" cols="40" rows="5" class="textarea form-control" id="id_child-{{indexValue}}-allergies"></textarea>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col">
-                 <div class="form-group">
-                    <label for="child-medical_notes">Medical Notes</label>
-                    <textarea name="child-medical_notes" cols="40" rows="5" class="textarea form-control" id="id_child-{{indexValue}}-allergies"></textarea>
-                  </div>
-               </div>
-           </div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+        <label for="child-allergies">Allergies</label>
+        <textarea name="child-allergies" cols="20" rows="3" class="textarea form-control" id="id_child-allergies"></textarea>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+        <label for="child-medical_notes">Medical Notes</label>
+        <textarea name="child-medical_notes" cols="20" rows="3" class="textarea form-control" id="id_child-allergies"></textarea>
         </div>
     </div>
 </div>
