@@ -5,7 +5,7 @@ Depending on your operating system, you can do a
 git clone https://github.com/flyboy1565/HomeSchool-Connections.git
 ```
 to pull down the repo. Once you have the package you'll want to get into the base directory then you can do the following. 
-This has been written to allow you to use pip to install all the python related packages so you'll need to do this 
+This has been written to allow you to use pip to install all the python related packages so you'll need to do this.
 *I highly recommend a virtual environment, either python3 -m venv or pyenv*
 ```
 pip install -r requirements.txt
