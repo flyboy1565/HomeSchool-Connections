@@ -51,16 +51,6 @@
             }
             .search-glass {
                 font-family: FontAwesome;
-                {% comment %} padding: 17px;
-                padding-left: 55px;
-                width: 300px;
-                border: 1px solid #f5f5f5;
-                font-size: 13px;
-                color: gray;
-                background-image: url('http://i47.tinypic.com/r02vbq.png');
-                background-repeat: no-repeat;
-                background-position: left center;
-                outline: 0 {% endcomment %}
             }
         </style>
     </head>
@@ -76,19 +66,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "add-contact" %}">Add Contact</a>
                 </li>
-                {% comment %} <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>     {% endcomment %}
             </ul>
         </div>  
         </nav>
         {% block sidebar %}
 
         {% endblock sidebar %}
-        <div class="main container" style="margin-top:30px">
+        <div class="main container" style="margin-top:5px">
         {% block content %}
         {% endblock content %}
         </div>
