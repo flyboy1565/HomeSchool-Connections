@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.forms import inlineformset_factory, formset_factory
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.utils.encoding import force_text
 
 import random
@@ -38,6 +38,14 @@ def view_contact(request, obj_type, pk):
         'parent': parent
     }
     return render(request, 'directory/view_contact.html', context)    
+
+
+def volunteers(request, vtype):
+    vtypes = {i[1]:i[0] for i in ParentContact._meta.get_field('volunteering_type_1').choices }
+    value = vtypes[vtype]
+    objs = ParentContact.objects.filter(Q(volunteering_type_1=value)|Q(volunteering_type_2=value))
+    context = {'parents': objs, 'type': vtype}
+    return render(request, 'directory/volunteer_list.html', context)    
 
 
 def add_contact(request):

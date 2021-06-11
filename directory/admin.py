@@ -31,8 +31,7 @@ class GenericAdmin(admin.ModelAdmin):
         for field in model._meta.fields:
             if field.is_relation:
                 self.list_display.append(linkify(field.name))
-            elif field.name != "id":
-                self.list_display.append(field.name)
+            self.list_display.append(field.name)
         self.list_filter = [(str(field.name), RelatedDropdownFilter) for field in model._meta.fields if 'target_field' in dir(field) ]
         
         self.search_fields = [field.name for field in model._meta.fields ] # if field.name != 'id']

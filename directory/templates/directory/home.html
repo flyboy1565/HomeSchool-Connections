@@ -57,7 +57,7 @@ Welcome
                 </div>
                 <ul class="list-group list-group-flush">
                   {% for k, c in volunteer_types.items %}
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="#">{{k}} </a><span class"badge badge-primary badge-pill">{{c}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><a href="{% url 'view-volunteers' vtype=k %}">{{k}} </a><span class"badge badge-primary badge-pill">{{c}}</span></li>
                   {% empty %}
                     <li class="list-group-item">No Volunteers Registered</li>
                   {% endfor %}

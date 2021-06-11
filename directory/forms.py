@@ -21,7 +21,7 @@ class ParentContactForm(ModelForm):
 class ChildForm(ModelForm):
     class Meta:
         model = Child
-        fields = ('child_name', 'birth_date', 'allergies', 'medical_notes')
+        fields = ('first_name', 'last_name', 'birth_date', 'allergies', 'medical_notes')
 
 
 class MyFormSetHelper(FormHelper):
@@ -29,6 +29,3 @@ class MyFormSetHelper(FormHelper):
         super(MyFormSetHelper, self).__init__(*args, **kwargs)
         self.template = 'bootstrap/table_inline_formset.html'
 
-
-# ParentForm = modelform_factory(ParentContact, form=ParentContactForm)
-# ChildrenForm = modelform_factory(Child, form=ChildForm)

@@ -45,11 +45,19 @@ class ParentContact(models.Model):
 
 
 class Child(models.Model):
-    child_name = models.CharField(_("child name"), max_length=50)
+    first_name = models.CharField(_("first name"), max_length=50)
+    last_name = models.CharField(_("last name"), max_length=50)
     birth_date = models.DateField()
     parent = models.ForeignKey("ParentContact", related_name="children", on_delete=models.CASCADE)
     allergies = models.TextField(null=True, blank=True)
     medical_notes = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    @property
+    def child_name(self):
+        return self.__str__()
 
     @property
     def age(self):
@@ -63,23 +71,7 @@ class Child(models.Model):
         else:
             return today.year -  self.birth_date.year
 
-    def __str__(self):
-        return self.child_name
     
     class Meta:
         verbose_name_plural = 'Children'
-    
-
-# class SkillSet(models.Model):
-#     skill = models.CharField(_("skill"), max_length=50)
-
-#     def __str__(self):
-#         return self.skill
-    
-
-# class VolunteerType(models.Model):
-#     vtype = models.CharField(_("volunteer type"), max_length=50)
-
-#     def __str__(self):
-#         return self.vtype
     
